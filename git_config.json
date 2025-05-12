@@ -1,0 +1,12 @@
+{
+  "commit_style": "internal_detail",
+  "language": "ko",
+  "noti_pf": ["kakao", "discord", "gmail", "slack"],
+  "log_path_success": "success_logs",
+  "log_path_fail": "fail_logs",
+  "llm_provider": "fireworks",
+  "model": "maverick-llama-4-8b",
+  "prompt_style_path": "prompt_by_style",
+  "timezone": "Asia/Seoul",
+  "log_format": "jsonl"
+}
