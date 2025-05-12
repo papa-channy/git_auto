@@ -28,17 +28,15 @@ def ping() -> bool:
         resp = requests.post(WEBHOOK_URL, headers=HEADERS, json=payload, timeout=5)
         return resp.status_code in [200, 204]
     except Exception as e:
-        print(f"[DISCORD] ping 실패: {e}")
         return False
 
 # 🔹 send(): 커밋 결과 메시지 전송
 def send(commit_msg: str, status: str = "success") -> bool:
     if not WEBHOOK_URL:
-        print("[DISCORD] Webhook URL 없음")
         return False
 
     prefix = "✅ Git Push 성공" if status == "success" else "❌ Git Push 실패"
-    time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    time_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     body = f"""**{prefix}**
 🕒 {time_str}
@@ -49,5 +47,4 @@ def send(commit_msg: str, status: str = "success") -> bool:
         resp = requests.post(WEBHOOK_URL, headers=HEADERS, json={"content": body}, timeout=10)
         return resp.status_code in [200, 204]
     except Exception as e:
-        print(f"[DISCORD] 메시지 전송 실패: {e}")
         return False

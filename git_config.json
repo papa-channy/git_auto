@@ -1,12 +1,38 @@
 {
-  "commit_style": "internal_detail",
-  "language": "ko",
-  "noti_pf": ["kakao", "discord", "gmail", "slack"],
-  "log_path_success": "success_logs",
-  "log_path_fail": "fail_logs",
-  "llm_provider": "fireworks",
-  "model": "maverick-llama-4-8b",
+  "style": {
+    "commit": "internal_detail",
+    "record": "doc_writing"
+  },
+  "language": {
+    "commit": "ko",
+    "record": "ko"
+  },
   "prompt_style_path": "prompt_by_style",
+  "llm": {
+    "commit": {
+      "provider": ["fireworks", "openai"],
+      "model": ["llama4-maverick-instruct-basic", "gpt-4o"]
+    },
+    "record": {
+      "provider": ["fireworks", "openai"],
+      "model": ["llama4-maverick-instruct-basic", "gpt-4o"]
+    }
+  },
+  "llm_param": {
+  "commit": {
+    "max_tokens": 1024,
+    "top_p": 0.7,
+    "top_k": 40,
+    "temperature": 0.6
+  },
+  "record": {
+    "max_tokens": 2048,
+    "top_p": 0.95,
+    "top_k": 100,
+    "temperature": 0.9
+  }
+},
+  "noti_pf": ["kakao", "discord", "gmail", "slack"],
   "timezone": "Asia/Seoul",
   "log_format": "jsonl"
 }
